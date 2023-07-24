@@ -1,0 +1,99 @@
+.contactForm {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: var(--first-color);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 var(--fourth-color);
+  min-height: 412px;
+  width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .contactForm {
+    min-height: 0;
+  }
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .inputDiv {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+.inputItem {
+  flex: 1;
+}
+
+.contactForm label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--fourth-color);
+}
+
+.contactForm input {
+  width: 100%;
+  padding: 8px 7px;
+  font-size: 16px;
+  border: 2px solid var(--fourth-color);
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  margin: 5px 0px;
+  border-radius: 10px;
+}
+
+.contactForm textarea {
+  width: 100%;
+  padding: 8px 7px;
+  font-size: 16px;
+  border: 2px solid var(--fourth-color);
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  margin: 5px 0px;
+  resize: none;
+  height: 120px;
+  border-radius: 10px;
+}
+
+.contactForm input::placeholder {
+  color: var(--fourth-color);
+}
+
+.contactForm input:focus {
+  border-color: var(--fourth-color);
+}
+
+.contactForm button {
+  width: 100%;
+  max-width: 250px;
+  align-items: center;
+  padding: 8px 8px;
+  margin: 16px 0px;
+  background-color: var(--fourth-color);
+  color: var(--first-color);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+}
+
+.contactForm .input-error {
+  border-color: var(--third-color);
+}
+
+.contactForm .error {
+  color: var(--third-color);
+  font-size: 12px;
+  text-align: left;
+}
