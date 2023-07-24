@@ -29,8 +29,10 @@ const HomeView = () => {
     }
   }, [language]);
 
+  const theme = useSelector((state) => state.theme.theme);
+
   return (
-    <HomeViewContainer>
+    <HomeViewContainer theme={theme}>
       <div className="container py-5">
         <div className="row ">
           <div className="col-lg-6">

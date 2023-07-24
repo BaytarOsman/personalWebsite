@@ -16,6 +16,7 @@ import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../redux/slices/languageSlice";
 import headerData from "../data/headerData";
+import { setTheme } from "../redux/slices/themeSlice";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -107,6 +108,7 @@ const Header = () => {
   }
 
   const theme = useRef(null);
+  const themeMobile = useRef(null);
   const [themeCount, setThemeCount] = useState(0);
 
   const themeIcon = localStorage.getItem("theme");
@@ -123,12 +125,13 @@ const Header = () => {
     }
   }, []);
 
-  console.log(theme.current);
   useEffect(() => {
     if (themeCount == 1) {
       if (themeIcon === "light") {
         theme.current.classList.remove("fa-moon");
         theme.current.classList.add("fa-sun");
+        themeMobile.current.classList.remove("fa-moon");
+        themeMobile.current.classList.add("fa-sun");
       }
     }
   }, [themeCount]);
@@ -139,13 +142,19 @@ const Header = () => {
       document.body.classList.add("light");
       theme.current.classList.remove("fa-moon");
       theme.current.classList.add("fa-sun");
+      themeMobile.current.classList.remove("fa-moon");
+      themeMobile.current.classList.add("fa-sun");
       localStorage.setItem("theme", "light");
+      dispatch(setTheme("light"));
     } else {
       document.body.classList.toggle("dark");
       document.body.classList.remove("light");
       theme.current.classList.remove("fa-sun");
       theme.current.classList.add("fa-moon");
+      themeMobile.current.classList.remove("fa-sun");
+      themeMobile.current.classList.add("fa-moon");
       localStorage.setItem("theme", "dark");
+      dispatch(setTheme("dark"));
     }
   }
 
@@ -250,7 +259,11 @@ const Header = () => {
                     onClick={handleMobile}
                   ></HeaderIcon>
                   <HeaderTitle>
-                    <HeaderSpan onClick={goToHome}>Osman Baytar</HeaderSpan>
+                    <HeaderTheme
+                      className="fa-solid fa-moon"
+                      onClick={changeTheme}
+                      ref={themeMobile}
+                    ></HeaderTheme>
                   </HeaderTitle>
                   <HeaderTitle className="col-lg-1 d-flex flex-row align-items-center">
                     <HeaderFlag src={flag} />

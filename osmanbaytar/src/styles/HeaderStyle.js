@@ -13,7 +13,6 @@ export const HeaderContainer = styled.div`
   min-height: 80px;
   height: 100%;
   padding: 0 20px;
-  // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   box-shadow: ${(props) =>
     props.home == true ? "none" : "0 0 10px 0 rgba(0, 0, 0, 0.5)"};
   @media (max-width: 992px) {
@@ -99,7 +98,4 @@ export const HeaderTheme = styled.div`
   color: var(--third-color);
   font-size: 1.5em;
   cursor: pointer;
-  @media (max-width: 992px) {
-    display: none;
-  }
 `;

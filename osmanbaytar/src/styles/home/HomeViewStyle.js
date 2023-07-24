@@ -1,16 +1,22 @@
 import styled from "styled-components";
 
 export const HomeViewContainer = styled.div`
-  background-color: var(--first-color);
+  /* background-color: var(--first-color); */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 160px);
 
-  background-image: url("../../../public/3242971.jpg");
+  /* background-image: url("../../../public/3242971.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
+
+  background: ${({ theme }) =>
+    theme === "light"
+      ? "linear-gradient(45deg, rgba(210, 223, 224, 0.577) 13%, rgba(85, 222, 247, 0.471) 23%, rgba(147, 236, 255, 0.249) 34%, rgba(54, 210, 238, 0.471) 49%, rgba(178, 239, 250, 0.471) 71%)"
+      : "linear-gradient(45deg, rgba(9, 43, 43, 0.577) 13%, rgba(33, 127, 184, 0.471) 23%, rgba(133,180,190,0.249) 34%, rgba(49,73,78,0.471) 49%, rgba(51, 101, 115, 0.471) 71%)"};
+
   // position: relative;
   // top: -80px;
 
@@ -59,15 +65,15 @@ export const HomeViewButton = styled.button`
 `;
 
 export const HomeViewBackground = styled.div`
-  background-image: url("../../../public/transparent.png");
+  /* background-image: url("../../../public/blackWhite.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   min-height: 400px;
   max-width: 300px;
   width: 100%;
-  opacity: 0.5;
-  border-radius: 50%;
+  /* box-shadow: 0 0 10px 0 var(--third-color); */
+
   @media screen and (max-width: 991px) {
     display: none;
   }
