@@ -8,13 +8,13 @@ export const HeaderContainer = styled.div`
   position: sticky;
   z-index: 100;
   background-color: ${(props) =>
-    props.home == true ? "transparent" : "var(--first-color)"};
+    props.home == "true" ? "transparent" : "var(--first-color)"};
   background-color: var(--first-color);
   min-height: 80px;
   height: 100%;
   padding: 0 20px;
   box-shadow: ${(props) =>
-    props.home == true ? "none" : "0 0 10px 0 rgba(0, 0, 0, 0.5)"};
+    props.home == "true" ? "none" : "0 0 10px 0 rgba(0, 0, 0, 0.5)"};
   @media (max-width: 992px) {
     flex-direction: column;
     padding: 16px 20px;
@@ -43,7 +43,7 @@ export const HeaderTitle = styled.div`
 
 export const HeaderSelect = styled.select`
   background-color: ${(props) =>
-    props.home == true ? "transparent" : "var(--first-color)"};
+    props.home == "true" ? "transparent" : "var(--first-color)"};
   color: var(--third-color);
   border: none;
   font-size: 1em;
@@ -55,7 +55,7 @@ export const HeaderSelect = styled.select`
 
 export const HeaderOption = styled.option`
   background-color: ${(props) =>
-    props.home == true ? "transparent" : "var(--first-color)"};
+    props.home == "true" ? "transparent" : "var(--first-color)"};
   color: var(--third-color);
   border: none;
   font-size: 0.8em;
