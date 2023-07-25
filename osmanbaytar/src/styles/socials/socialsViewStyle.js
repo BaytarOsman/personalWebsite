@@ -9,6 +9,7 @@ export const SocialsViewMain = styled.div`
 
 export const SocialsContainer = styled.div`
   min-height: calc(100vh - 160px);
+  padding-bottom: 1rem;
 `;
 
 export const SocialTitle = styled.h2`
@@ -30,6 +31,7 @@ export const SocialBoxContainer = styled.div`
   margin-right: 0.1rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+
   border-radius: 0.5rem;
   background-color: var(--first-color);
   @media screen and (max-width: 768px) {

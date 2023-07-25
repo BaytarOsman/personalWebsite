@@ -7,6 +7,10 @@ export const EducationContainer = styled.div`
   border-radius: 10px;
   margin-bottom: 60px;
   margin-top: 30px;
+  @media screen and (max-width: 991px) {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+  }
 `;
 
 export const EducationTitle = styled.h2`
