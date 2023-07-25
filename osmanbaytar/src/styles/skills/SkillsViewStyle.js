@@ -32,7 +32,7 @@ export const SkillsBoxItemTitle = styled.h3`
   margin-left: 1rem;
 `;
 
-export const SkillsBoxItemList = styled.li`
+export const SkillsBoxItemList = styled.ul`
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
