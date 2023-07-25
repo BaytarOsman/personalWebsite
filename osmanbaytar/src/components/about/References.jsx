@@ -23,7 +23,7 @@ const References = () => {
   }, [language]);
 
   return (
-    <div className="container my-5">
+    <div className="container mt-5 pb-5">
       <ReferencesContainer className="row">
         <ReferencesTitle>{title}</ReferencesTitle>
         {data.map((item, index) => {
