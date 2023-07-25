@@ -123,6 +123,30 @@ function ContactForm() {
     });
   }
 
+  function emailWarningToast2En() {
+    toast.warning("Please type a valid email!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function emailWarningToast2Tr() {
+    toast.warning("Lütfen geçerli bir email giriniz!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   function messageWarningToastEn() {
     toast.warning("Message can not be empty!", {
       position: "bottom-right",
@@ -155,6 +179,12 @@ function ContactForm() {
       } else if (values.email === "") {
         emailWarningToastEn();
         emailRef.current.focus();
+      } else if (
+        !values.email.includes("@") ||
+        !(values.email.substring(values.email.length - 4) == ".com")
+      ) {
+        emailWarningToast2En();
+        emailRef.current.focus();
       } else if (values.message === "") {
         messageWarningToastEn();
         messageRef.current.focus();
@@ -165,6 +195,12 @@ function ContactForm() {
         nameRef.current.focus();
       } else if (values.email === "") {
         emailWarningToastTr();
+        emailRef.current.focus();
+      } else if (
+        !values.email.includes("@") ||
+        !(values.email.substring(values.email.length - 4) == ".com")
+      ) {
+        emailWarningToast2Tr();
         emailRef.current.focus();
       } else if (values.message === "") {
         messageWarningToastTr();
