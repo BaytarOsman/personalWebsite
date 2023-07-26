@@ -32,7 +32,7 @@ const FirstContext = () => {
           <FirstContextImageBox>
             <FirstContextImage
               className="px-auto"
-              src="../../../public/me.JPG"
+              src="../../../public/me2.JPG"
             />
           </FirstContextImageBox>
         </div>

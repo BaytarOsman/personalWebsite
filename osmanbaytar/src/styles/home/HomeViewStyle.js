@@ -61,16 +61,12 @@ export const HomeViewButton = styled.button`
   }
 `;
 
-export const HomeViewBackground = styled.div`
-  /* background-image: url("../../../public/blackWhite.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
+export const HomeViewImage = styled.img`
   min-height: 400px;
   max-width: 300px;
   width: 100%;
-  /* box-shadow: 0 0 10px 0 var(--third-color); */
-
+  box-shadow: 0 0 10px 0 var(--third-color);
+  border-radius: 0.5rem;
   @media screen and (max-width: 991px) {
     display: none;
   }
