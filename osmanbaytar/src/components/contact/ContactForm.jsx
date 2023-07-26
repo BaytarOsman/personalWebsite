@@ -30,6 +30,8 @@ function ContactForm() {
 
   const language = useSelector((state) => state.language.language);
 
+  const [isChecked, setIsChecked] = useState(false);
+
   useEffect(() => {
     if (language === "en") {
       setNameLabel(contactFormData.contactFormDataEn.name.label);
@@ -65,7 +67,6 @@ function ContactForm() {
         name: "",
         email: "",
         message: "",
-        folder: "",
       },
       validationSchema: schema,
       onSubmit,
@@ -171,48 +172,81 @@ function ContactForm() {
     });
   }
 
-  function checkToast() {
+  function checkToast(e) {
     if (language === "en") {
       if (values.name === "") {
         nameWarningToastEn();
         nameRef.current.focus();
+        e.preventDefault();
       } else if (values.email === "") {
         emailWarningToastEn();
         emailRef.current.focus();
+        e.preventDefault();
       } else if (
         !values.email.includes("@") ||
         !(values.email.substring(values.email.length - 4) == ".com")
       ) {
         emailWarningToast2En();
         emailRef.current.focus();
+        e.preventDefault();
       } else if (values.message === "") {
         messageWarningToastEn();
         messageRef.current.focus();
+        e.preventDefault();
       }
     } else if (language === "tr") {
       if (values.name === "") {
         nameWarningToastTr();
         nameRef.current.focus();
+        e.preventDefault();
       } else if (values.email === "") {
         emailWarningToastTr();
         emailRef.current.focus();
+        e.preventDefault();
       } else if (
         !values.email.includes("@") ||
         !(values.email.substring(values.email.length - 4) == ".com")
       ) {
         emailWarningToast2Tr();
         emailRef.current.focus();
+        e.preventDefault();
       } else if (values.message === "") {
         messageWarningToastTr();
         messageRef.current.focus();
+        e.preventDefault();
       }
     }
   }
 
+  function checkOnChange() {
+    if (
+      values.name !== "" &&
+      values.email !== "" &&
+      values.message !== "" &&
+      values.email.includes("@") &&
+      values.email.substring(values.email.length - 4) == ".com"
+    ) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+  }
+
+  useEffect(() => {
+    checkOnChange();
+  }, [values]);
+
   return (
-    <form onSubmit={handleSubmit} className="contactForm">
+    <form
+      action={isChecked ? "https://formsubmit.co/bosman1997@hotmail.com" : null}
+      target={isChecked ? "_blank" : null}
+      method={isChecked ? "POST" : null}
+      className="contactForm"
+      onChange={checkOnChange}
+    >
       <ContactTitle>{title}</ContactTitle>
       <div className="inputDiv">
+        <input type="hidden" name="_subject" value="New Email" />
         <div className="inputItem">
           <label>{nameLabel}</label>
           <input
@@ -220,6 +254,7 @@ function ContactForm() {
             value={values.name}
             onChange={handleChange}
             id="name"
+            name="name"
             ref={nameRef}
             placeholder={namePlaceholder}
             className={errors.name ? "input-error" : ""}
@@ -233,6 +268,7 @@ function ContactForm() {
             value={values.email}
             onChange={handleChange}
             id="email"
+            name="email"
             ref={emailRef}
             placeholder={emailPlaceholder}
             className={errors.email ? "input-error" : ""}
@@ -247,6 +283,7 @@ function ContactForm() {
           value={values.message}
           onChange={handleChange}
           id="message"
+          name="message"
           ref={messageRef}
           placeholder={messagePlaceholder}
           className={errors.message ? "input-error" : ""}
