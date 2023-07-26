@@ -7,14 +7,15 @@ export const HeaderContainer = styled.div`
   align-items: center;
   position: sticky;
   z-index: 100;
-  background-color: ${(props) =>
-    props.home == "true" ? "transparent" : "var(--first-color)"};
+  /* background-color: ${(props) =>
+    props.home == "true" ? "transparent" : "var(--first-color)"}; */
   background-color: var(--first-color);
   min-height: 80px;
   height: 100%;
   padding: 0 20px;
-  box-shadow: ${(props) =>
-    props.home == "true" ? "none" : "0 0 10px 0 rgba(0, 0, 0, 0.5)"};
+  /* box-shadow: ${(props) =>
+    props.home == "true" ? "none" : "0 0 10px 0 rgba(0, 0, 0, 0.5)"}; */
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px 0px;
   @media (max-width: 992px) {
     flex-direction: column;
     padding: 16px 20px;
@@ -30,6 +31,7 @@ export const HeaderComputer = styled.div`
 
 export const HeaderMobile = styled.div`
   display: none;
+
   @media (max-width: 992px) {
     display: block;
   }
@@ -42,8 +44,9 @@ export const HeaderTitle = styled.div`
 `;
 
 export const HeaderSelect = styled.select`
-  background-color: ${(props) =>
-    props.home == "true" ? "transparent" : "var(--first-color)"};
+  /* background-color: ${(props) =>
+    props.home == "true" ? "transparent" : "var(--first-color)"}; */
+  background-color: var(--first-color);
   color: var(--third-color);
   border: none;
   font-size: 1em;
@@ -54,8 +57,9 @@ export const HeaderSelect = styled.select`
 `;
 
 export const HeaderOption = styled.option`
-  background-color: ${(props) =>
-    props.home == "true" ? "transparent" : "var(--first-color)"};
+  /* background-color: ${(props) =>
+    props.home == "true" ? "transparent" : "var(--first-color)"}; */
+  background-color: var(--first-color);
   color: var(--third-color);
   border: none;
   font-size: 0.8em;
@@ -92,6 +96,8 @@ export const HeaderIcon = styled.i`
 
 export const HeaderMenu = styled.div`
   padding-top: 10px;
+  /* position: absolute; */
+  /* z-index: 1; */
 `;
 
 export const HeaderTheme = styled.div`

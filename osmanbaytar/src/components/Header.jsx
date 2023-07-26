@@ -38,24 +38,24 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const pathname = window.location.pathname;
-  const [home, setHome] = useState("false");
+  // const [home, setHome] = useState("false");
 
   useEffect(() => {
     if (pathname === "/") {
       setSelected("home");
-      setHome("true");
+      // setHome("true");
     } else if (pathname === "/about") {
       setSelected("about");
-      setHome("false");
+      // setHome("false");
     } else if (pathname === "/skills") {
       setSelected("skills");
-      setHome("false");
+      // setHome("false");
     } else if (pathname === "/socials") {
       setSelected("socials");
-      setHome("false");
+      // setHome("false");
     } else if (pathname === "/contact") {
       setSelected("contact");
-      setHome("false");
+      // setHome("false");
     }
   }, [pathname]);
 
@@ -161,7 +161,7 @@ const Header = () => {
   return (
     <>
       {dataCount > 0 && (
-        <HeaderContainer home={home}>
+        <HeaderContainer>
           <div className="container">
             <HeaderComputer>
               <div className="row">
@@ -238,14 +238,9 @@ const Header = () => {
                   <HeaderSelect
                     value={selectedOptionEn == true ? "EN" : "TR"}
                     onChange={changeLanguage}
-                    home={home}
                   >
-                    <HeaderOption value={"EN"} home={home}>
-                      EN
-                    </HeaderOption>
-                    <HeaderOption value={"TR"} home={home}>
-                      TR
-                    </HeaderOption>
+                    <HeaderOption value={"EN"}>EN</HeaderOption>
+                    <HeaderOption value={"TR"}>TR</HeaderOption>
                   </HeaderSelect>
                 </HeaderTitle>
               </div>
@@ -279,6 +274,11 @@ const Header = () => {
 
                 {isMobile && (
                   <HeaderMenu className="animate__animated animate__backInDown">
+                    <HeaderTitle
+                      active={selected === "home" ? "true" : "false"}
+                    >
+                      <HeaderSpan onClick={goToHome}>Osman Baytar</HeaderSpan>
+                    </HeaderTitle>
                     <HeaderTitle
                       active={selected === "about" ? "true" : "false"}
                     >
