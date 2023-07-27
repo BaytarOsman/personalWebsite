@@ -40,7 +40,16 @@ const HomeView = () => {
             <HomeViewh3>{data.subTitle}</HomeViewh3>
             <HomeViewp>{data.text}</HomeViewp>
             <HomeViewButtonDiv>
-              <HomeViewButton>{data.button1}</HomeViewButton>
+              <a
+                href={
+                  language == "en"
+                    ? "../../public/OsmanBaytar_EnglishCV.pdf"
+                    : "../../public/OsmanBaytar_TürkçeCV.pdf"
+                }
+                download
+              >
+                <HomeViewButton>{data.button1}</HomeViewButton>
+              </a>
               <HomeViewButton onClick={goToContact}>
                 {data.button2}
               </HomeViewButton>
