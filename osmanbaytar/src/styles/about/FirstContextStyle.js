@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FirstContextContainer = styled.div`
-  // background-color: var(--first-color);
   padding: 50px 0;
   border-radius: 10px;
   @media screen and (max-width: 768px) {

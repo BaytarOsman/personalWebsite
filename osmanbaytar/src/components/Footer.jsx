@@ -21,17 +21,6 @@ const Footer = () => {
   const [socials, setSocials] = useState("");
   const [contact, setContact] = useState("");
 
-  const pathname = window.location.pathname;
-  const [home, setHome] = useState(false);
-
-  useEffect(() => {
-    if (pathname === "/") {
-      setHome(true);
-    } else {
-      setHome(false);
-    }
-  }, [pathname]);
-
   useEffect(() => {
     if (language === "en") {
       setAbout(footerData.footerDataEn.about);
@@ -64,7 +53,7 @@ const Footer = () => {
   }
 
   return (
-    <FooterWrapper home={home}>
+    <FooterWrapper>
       <FooterComputer>
         <FooterContainer className="container ">
           <div className="row align-items-center pt-2">

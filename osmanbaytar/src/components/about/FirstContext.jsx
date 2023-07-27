@@ -26,13 +26,13 @@ const FirstContext = () => {
 
   return (
     <div className="container">
-      <FirstContextContainer className="row my-5 align-items-center">
+      <FirstContextContainer className="row mb-5 align-items-center">
         <FirstContextH3>{title}</FirstContextH3>
         <div className="col-lg-4">
           <FirstContextImageBox>
             <FirstContextImage
               className="px-auto"
-              src="../../../public/me.JPG"
+              src="../../../public/me2.JPG"
             />
           </FirstContextImageBox>
         </div>

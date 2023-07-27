@@ -16,6 +16,7 @@ import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../redux/slices/languageSlice";
 import headerData from "../data/headerData";
+import { setTheme } from "../redux/slices/themeSlice";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -37,24 +38,24 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const pathname = window.location.pathname;
-  const [home, setHome] = useState(false);
+  // const [home, setHome] = useState("false");
 
   useEffect(() => {
     if (pathname === "/") {
       setSelected("home");
-      setHome(true);
+      // setHome("true");
     } else if (pathname === "/about") {
       setSelected("about");
-      setHome(false);
+      // setHome("false");
     } else if (pathname === "/skills") {
       setSelected("skills");
-      setHome(false);
+      // setHome("false");
     } else if (pathname === "/socials") {
       setSelected("socials");
-      setHome(false);
+      // setHome("false");
     } else if (pathname === "/contact") {
       setSelected("contact");
-      setHome(false);
+      // setHome("false");
     }
   }, [pathname]);
 
@@ -107,6 +108,7 @@ const Header = () => {
   }
 
   const theme = useRef(null);
+  const themeMobile = useRef(null);
   const [themeCount, setThemeCount] = useState(0);
 
   const themeIcon = localStorage.getItem("theme");
@@ -123,12 +125,13 @@ const Header = () => {
     }
   }, []);
 
-  console.log(theme.current);
   useEffect(() => {
     if (themeCount == 1) {
       if (themeIcon === "light") {
         theme.current.classList.remove("fa-moon");
         theme.current.classList.add("fa-sun");
+        themeMobile.current.classList.remove("fa-moon");
+        themeMobile.current.classList.add("fa-sun");
       }
     }
   }, [themeCount]);
@@ -139,20 +142,26 @@ const Header = () => {
       document.body.classList.add("light");
       theme.current.classList.remove("fa-moon");
       theme.current.classList.add("fa-sun");
+      themeMobile.current.classList.remove("fa-moon");
+      themeMobile.current.classList.add("fa-sun");
       localStorage.setItem("theme", "light");
+      dispatch(setTheme("light"));
     } else {
       document.body.classList.toggle("dark");
       document.body.classList.remove("light");
       theme.current.classList.remove("fa-sun");
       theme.current.classList.add("fa-moon");
+      themeMobile.current.classList.remove("fa-sun");
+      themeMobile.current.classList.add("fa-moon");
       localStorage.setItem("theme", "dark");
+      dispatch(setTheme("dark"));
     }
   }
 
   return (
     <>
       {dataCount > 0 && (
-        <HeaderContainer home={home}>
+        <HeaderContainer>
           <div className="container">
             <HeaderComputer>
               <div className="row">
@@ -229,14 +238,9 @@ const Header = () => {
                   <HeaderSelect
                     value={selectedOptionEn == true ? "EN" : "TR"}
                     onChange={changeLanguage}
-                    home={home}
                   >
-                    <HeaderOption value={"EN"} home={home}>
-                      EN
-                    </HeaderOption>
-                    <HeaderOption value={"TR"} home={home}>
-                      TR
-                    </HeaderOption>
+                    <HeaderOption value={"EN"}>EN</HeaderOption>
+                    <HeaderOption value={"TR"}>TR</HeaderOption>
                   </HeaderSelect>
                 </HeaderTitle>
               </div>
@@ -250,7 +254,11 @@ const Header = () => {
                     onClick={handleMobile}
                   ></HeaderIcon>
                   <HeaderTitle>
-                    <HeaderSpan onClick={goToHome}>Osman Baytar</HeaderSpan>
+                    <HeaderTheme
+                      className="fa-solid fa-moon"
+                      onClick={changeTheme}
+                      ref={themeMobile}
+                    ></HeaderTheme>
                   </HeaderTitle>
                   <HeaderTitle className="col-lg-1 d-flex flex-row align-items-center">
                     <HeaderFlag src={flag} />
@@ -266,6 +274,11 @@ const Header = () => {
 
                 {isMobile && (
                   <HeaderMenu className="animate__animated animate__backInDown">
+                    <HeaderTitle
+                      active={selected === "home" ? "true" : "false"}
+                    >
+                      <HeaderSpan onClick={goToHome}>Osman Baytar</HeaderSpan>
+                    </HeaderTitle>
                     <HeaderTitle
                       active={selected === "about" ? "true" : "false"}
                     >

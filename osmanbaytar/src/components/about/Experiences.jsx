@@ -23,16 +23,16 @@ const Experiences = () => {
     }
   }, [language]);
   return (
-    <EducationContainer className="container">
-      <div className="row">
+    <div className="container">
+      <EducationContainer className="row">
         <EducationTitle>{title}</EducationTitle>
         <EducationList>
           {data.map((item, index) => {
             return <EducationBox key={index} data={item} />;
           })}
         </EducationList>
-      </div>
-    </EducationContainer>
+      </EducationContainer>
+    </div>
   );
 };
 

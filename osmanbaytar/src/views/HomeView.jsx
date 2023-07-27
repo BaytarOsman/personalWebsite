@@ -5,7 +5,7 @@ import {
   HomeViewp,
   HomeViewButtonDiv,
   HomeViewButton,
-  HomeViewBackground,
+  HomeViewImage,
 } from "../styles/home/HomeViewStyle";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
@@ -29,11 +29,13 @@ const HomeView = () => {
     }
   }, [language]);
 
+  const theme = useSelector((state) => state.theme.theme);
+
   return (
-    <HomeViewContainer>
+    <HomeViewContainer theme={theme}>
       <div className="container py-5">
         <div className="row ">
-          <div className="col-lg-6">
+          <div className="col-lg-6 d-flex flex-column text-start align-items-start justify-content-center">
             <HomeViewh1>{data.title}</HomeViewh1>
             <HomeViewh3>{data.subTitle}</HomeViewh3>
             <HomeViewp>{data.text}</HomeViewp>
@@ -45,7 +47,10 @@ const HomeView = () => {
             </HomeViewButtonDiv>
           </div>
           <div className="col-lg-6 d-flex align-items-center justify-content-center">
-            <HomeViewBackground className="bg-img"></HomeViewBackground>
+            <HomeViewImage
+              className="animate__animated animate__backInRight"
+              src="../../public/me.JPG"
+            ></HomeViewImage>
           </div>
         </div>
       </div>

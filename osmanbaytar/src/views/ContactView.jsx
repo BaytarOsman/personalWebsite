@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ContactInformations from "../components/contact/ContactInformations";
 import contactInformationsData from "../data/contact/contactInformationsData";
-import { ContactViewWrapper } from "../styles/contact/ContactStyle";
+import {
+  ContactViewMain,
+  ContactViewWrapper,
+} from "../styles/contact/ContactStyle";
 
 const ContactView = () => {
   const [title, setTitle] = useState("");
@@ -24,18 +27,22 @@ const ContactView = () => {
     }
   }, [language]);
 
+  const theme = useSelector((state) => state.theme.theme);
+
   return (
-    <ContactViewWrapper className="container">
-      <div className="row ">
-        <h1 className="text-center mt-5">{title}</h1>
-        <div className="col-lg-6 mt-5">
-          <ContactInformations data={data} title={contactInformationsTitle} />
+    <ContactViewMain theme={theme}>
+      <ContactViewWrapper className="container">
+        <div className="row ">
+          <h1 className="text-center mt-5">{title}</h1>
+          <div className="col-lg-6 mt-5">
+            <ContactInformations data={data} title={contactInformationsTitle} />
+          </div>
+          <div className="col-lg-6 mt-5">
+            <ContactForm />
+          </div>
         </div>
-        <div className="col-lg-6 mt-5">
-          <ContactForm />
-        </div>
-      </div>
-    </ContactViewWrapper>
+      </ContactViewWrapper>
+    </ContactViewMain>
   );
 };
 
