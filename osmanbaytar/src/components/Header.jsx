@@ -38,24 +38,18 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const pathname = window.location.pathname;
-  // const [home, setHome] = useState("false");
 
   useEffect(() => {
     if (pathname === "/") {
       setSelected("home");
-      // setHome("true");
     } else if (pathname === "/about") {
       setSelected("about");
-      // setHome("false");
     } else if (pathname === "/skills") {
       setSelected("skills");
-      // setHome("false");
     } else if (pathname === "/socials") {
       setSelected("socials");
-      // setHome("false");
     } else if (pathname === "/contact") {
       setSelected("contact");
-      // setHome("false");
     }
   }, [pathname]);
 

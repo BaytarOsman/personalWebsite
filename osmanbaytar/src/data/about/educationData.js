@@ -15,12 +15,12 @@ const educationDataEn = [
   {
     title: "Seviye Anatolian High School",
     date: "2014 - 2016",
-    comment: "Science",
+    comment: "Preparation for University",
   },
   {
     title: "Gazi Anatolian High School",
     date: "2012 - 2014",
-    comment: "Science",
+    comment: "Preparation for University and TUBITAK Mathematics Olympiads",
   },
 ];
 
@@ -38,12 +38,12 @@ const educationDataTr = [
   {
     title: "Özel Seviye Anadolu Lisesi",
     date: "2014 - 2016",
-    comment: "Fen",
+    comment: "Üniversiteye Hazırlık",
   },
   {
     title: "Gazi Anadolu Lisesi",
     date: "2012 - 2014",
-    comment: "Fen",
+    comment: "Üniversiteye ve TÜBİTAK Matematik Olimpiyatlarına Hazırlık",
   },
 ];
 

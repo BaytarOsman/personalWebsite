@@ -3,6 +3,12 @@ const experienceDataTitleTr = "Deneyimler";
 
 const experienceDataEn = [
   {
+    title: "Front-End Developer Intern",
+    date: "February 2023 - July 2023",
+    comment:
+      "Turkcell Geleceği Yazanlar Bootcamp, 15 Group and 5 Individual Projects",
+  },
+  {
     title: "Civil Engineer Intern",
     date: "September 2021 - October 2021",
     comment:
@@ -23,6 +29,11 @@ const experienceDataEn = [
 ];
 
 const experienceDataTr = [
+  {
+    title: "Front-End Developer Stajyeri",
+    date: "Şubat 2023 - Temmuz 2023",
+    comment: "Turkcell Geleceği Yazanlar Bootcamp, 15 Grup ve 5 Bireysel Proje",
+  },
   {
     title: "İnşaat Mühendisi Stajyeri",
     date: "Eylül 2021 - Ekim 2021",
