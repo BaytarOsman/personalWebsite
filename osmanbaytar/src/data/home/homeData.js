@@ -1,7 +1,7 @@
 const homeDataEn = {
   title: "Hi, I'm Osman Baytar",
   subTitle: "I'm a Frontend Developer",
-  text: " I'm a Frontend Developer based in Ankara, Turkey. Learning and developing something new has always been my top priority. Currently, I'm working on react amd javascript.",
+  text: " I'm a Frontend Developer based in Ankara, Turkey. Learning and developing something new has always been my top priority. Currently, I'm working on react and javascript.",
   button1: "Download CV",
   button2: "Contact Me",
 };

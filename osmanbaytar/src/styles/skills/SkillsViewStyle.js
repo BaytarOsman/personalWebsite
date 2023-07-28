@@ -23,6 +23,9 @@ export const SkillsBoxItem = styled.div`
     color: var(--first-color);
     box-shadow: 0 0 27px rgba(0, 0, 0, 0.85);
   }
+  @media screen and (max-width: 991px) {
+    min-height: 0;
+  }
 `;
 
 export const SkillsBoxItemTitle = styled.h3`

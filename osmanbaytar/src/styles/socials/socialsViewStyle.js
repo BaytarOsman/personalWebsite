@@ -14,7 +14,7 @@ export const SocialsContainer = styled.div`
 
 export const SocialTitle = styled.h2`
   font-size: 2.5rem;
-  color: var(--third-color);
+  color: var(--fourth-color);
   padding-top: 2rem;
   text-align: center;
   @media screen and (max-width: 768px) {

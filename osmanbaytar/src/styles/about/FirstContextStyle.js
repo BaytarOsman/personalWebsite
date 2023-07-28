@@ -9,7 +9,7 @@ export const FirstContextContainer = styled.div`
 `;
 
 export const FirstContextH3 = styled.h3`
-  color: var(--third-color);
+  color: var(--fourth-color);
   margin-bottom: 40px;
   font-size: 2.5em;
   text-align: center;

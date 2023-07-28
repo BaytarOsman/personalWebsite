@@ -238,7 +238,9 @@ function ContactForm() {
 
   return (
     <form
-      action={isChecked ? "https://formsubmit.co/bosman1997@hotmail.com" : null}
+      action={
+        isChecked ? "https://formsubmit.co/BaytarOsman1997@gmail.com" : null
+      }
       target={isChecked ? "_blank" : null}
       method={isChecked ? "POST" : null}
       className="contactForm"
@@ -246,7 +248,7 @@ function ContactForm() {
     >
       <ContactTitle>{title}</ContactTitle>
       <div className="inputDiv">
-        <input type="hidden" name="_subject" value="New Email" />
+        <input type="hidden" name="_subject" value="New Email from Portfolio" />
         <div className="inputItem">
           <label>{nameLabel}</label>
           <input
