@@ -96,10 +96,20 @@ const Header = () => {
   function changeLanguage() {
     if (language === "en") {
       dispatch(setLanguage("tr"));
+      localStorage.setItem("languageLocal", "tr");
     } else if (language === "tr") {
       dispatch(setLanguage("en"));
+      localStorage.setItem("languageLocal", "en");
     }
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("languageLocal") === "tr") {
+      dispatch(setLanguage("tr"));
+    } else if (localStorage.getItem("languageLocal") === "en") {
+      dispatch(setLanguage("en"));
+    }
+  }, []);
 
   const theme = useRef(null);
   const themeMobile = useRef(null);
