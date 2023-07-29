@@ -1,10 +1,12 @@
 import { useFormik } from "formik";
 import { contactSchemaEn, contactSchemaTr } from "../../schemas";
 import "../../styles/ContactForm.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import contactFormData from "../../data/contact/contactFormData";
 import { useSelector } from "react-redux";
 import { ContactTitle } from "../../styles/contact/ContactStyle";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -27,6 +29,8 @@ function ContactForm() {
   const [title, setTitle] = useState("");
 
   const language = useSelector((state) => state.language.language);
+
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     if (language === "en") {
@@ -63,16 +67,188 @@ function ContactForm() {
         name: "",
         email: "",
         message: "",
-        folder: "",
       },
       validationSchema: schema,
       onSubmit,
     });
 
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+
+  function nameWarningToastEn() {
+    toast.warning("Name can not be empty!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function nameWarningToastTr() {
+    toast.warning("İsim boş bırakılamaz!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function emailWarningToastEn() {
+    toast.warning("Email can not be empty!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function emailWarningToastTr() {
+    toast.warning("Email boş bırakılamaz!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function emailWarningToast2En() {
+    toast.warning("Please type a valid email!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function emailWarningToast2Tr() {
+    toast.warning("Lütfen geçerli bir email giriniz!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function messageWarningToastEn() {
+    toast.warning("Message can not be empty!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function messageWarningToastTr() {
+    toast.warning("Mesaj boş bırakılamaz!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function checkToast(e) {
+    if (language === "en") {
+      if (values.name === "") {
+        nameWarningToastEn();
+        nameRef.current.focus();
+        e.preventDefault();
+      } else if (values.email === "") {
+        emailWarningToastEn();
+        emailRef.current.focus();
+        e.preventDefault();
+      } else if (
+        !values.email.includes("@") ||
+        !(values.email.substring(values.email.length - 4) == ".com")
+      ) {
+        emailWarningToast2En();
+        emailRef.current.focus();
+        e.preventDefault();
+      } else if (values.message === "") {
+        messageWarningToastEn();
+        messageRef.current.focus();
+        e.preventDefault();
+      }
+    } else if (language === "tr") {
+      if (values.name === "") {
+        nameWarningToastTr();
+        nameRef.current.focus();
+        e.preventDefault();
+      } else if (values.email === "") {
+        emailWarningToastTr();
+        emailRef.current.focus();
+        e.preventDefault();
+      } else if (
+        !values.email.includes("@") ||
+        !(values.email.substring(values.email.length - 4) == ".com")
+      ) {
+        emailWarningToast2Tr();
+        emailRef.current.focus();
+        e.preventDefault();
+      } else if (values.message === "") {
+        messageWarningToastTr();
+        messageRef.current.focus();
+        e.preventDefault();
+      }
+    }
+  }
+
+  function checkOnChange() {
+    if (
+      values.name !== "" &&
+      values.email !== "" &&
+      values.message !== "" &&
+      values.email.includes("@") &&
+      values.email.substring(values.email.length - 4) == ".com"
+    ) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+  }
+
+  useEffect(() => {
+    checkOnChange();
+  }, [values]);
+
   return (
-    <form onSubmit={handleSubmit} className="contactForm">
+    <form
+      action={
+        isChecked ? "https://formsubmit.co/BaytarOsman1997@gmail.com" : null
+      }
+      target={isChecked ? "_blank" : null}
+      method={isChecked ? "POST" : null}
+      className="contactForm"
+      onChange={checkOnChange}
+    >
       <ContactTitle>{title}</ContactTitle>
       <div className="inputDiv">
+        <input type="hidden" name="_subject" value="New Email from Portfolio" />
         <div className="inputItem">
           <label>{nameLabel}</label>
           <input
@@ -80,6 +256,8 @@ function ContactForm() {
             value={values.name}
             onChange={handleChange}
             id="name"
+            name="name"
+            ref={nameRef}
             placeholder={namePlaceholder}
             className={errors.name ? "input-error" : ""}
           />
@@ -92,6 +270,8 @@ function ContactForm() {
             value={values.email}
             onChange={handleChange}
             id="email"
+            name="email"
+            ref={emailRef}
             placeholder={emailPlaceholder}
             className={errors.email ? "input-error" : ""}
           />
@@ -105,6 +285,8 @@ function ContactForm() {
           value={values.message}
           onChange={handleChange}
           id="message"
+          name="message"
+          ref={messageRef}
           placeholder={messagePlaceholder}
           className={errors.message ? "input-error" : ""}
         />
@@ -112,10 +294,11 @@ function ContactForm() {
       </div>
 
       <div className="d-flex justify-content-center">
-        <button type="submit" disabled={isSubmitting}>
+        <button type="submit" disabled={isSubmitting} onClick={checkToast}>
           {button}
         </button>
       </div>
+      <ToastContainer />
     </form>
   );
 }

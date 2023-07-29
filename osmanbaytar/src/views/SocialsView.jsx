@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import SocialViewData from "../data/socials/SocialViewData";
 import SocialBox from "../components/socials/SocialBox";
 import {
+  SocialsViewMain,
   SocialsContainer,
   SocialTitle,
 } from "../styles/socials/socialsViewStyle";
@@ -22,13 +23,17 @@ const SocialsView = () => {
     }
   }, [language]);
 
+  const theme = useSelector((state) => state.theme.theme);
+
   return (
-    <SocialsContainer className="container">
-      <SocialTitle>{title}</SocialTitle>
-      {data.map((item, index) => (
-        <SocialBox key={index} data={item} index={index} />
-      ))}
-    </SocialsContainer>
+    <SocialsViewMain theme={theme}>
+      <SocialsContainer className="container">
+        <SocialTitle>{title}</SocialTitle>
+        {data.map((item, index) => (
+          <SocialBox key={index} data={item} index={index} />
+        ))}
+      </SocialsContainer>
+    </SocialsViewMain>
   );
 };
 

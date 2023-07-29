@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
+export const SocialsViewMain = styled.div`
+  background: ${({ theme }) =>
+    theme === "light"
+      ? "linear-gradient(45deg, rgba(210, 223, 224, 0.577) 13%, rgba(85, 222, 247, 0.471) 23%, rgba(147, 236, 255, 0.249) 34%, rgba(54, 210, 238, 0.471) 49%, rgba(178, 239, 250, 0.471) 71%)"
+      : "linear-gradient(45deg, rgba(9, 43, 43, 0.577) 13%, rgba(33, 127, 184, 0.471) 23%, rgba(133,180,190,0.249) 34%, rgba(49,73,78,0.471) 49%, rgba(51, 101, 115, 0.471) 71%)"};
+`;
+
 export const SocialsContainer = styled.div`
   min-height: calc(100vh - 160px);
+  padding-bottom: 1rem;
 `;
 
 export const SocialTitle = styled.h2`
   font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--third-color);
+  color: var(--fourth-color);
   padding-top: 2rem;
   text-align: center;
   @media screen and (max-width: 768px) {
@@ -24,6 +31,7 @@ export const SocialBoxContainer = styled.div`
   margin-right: 0.1rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+
   border-radius: 0.5rem;
   background-color: var(--first-color);
   @media screen and (max-width: 768px) {

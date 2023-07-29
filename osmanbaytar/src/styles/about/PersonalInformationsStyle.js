@@ -4,6 +4,10 @@ export const PersonalInformationsContainer = styled.div`
   border-radius: 10px;
   padding: 20px 10px;
   background-color: var(--first-color);
+  @media screen and (max-width: 991px) {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+  }
 `;
 
 export const PersonalInformationsTitle = styled.h2`

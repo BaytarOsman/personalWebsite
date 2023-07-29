@@ -7,7 +7,6 @@ export const FooterWrapper = styled.div`
   min-height: 70px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   position: relative;
-  // bottom: ${(props) => (props.home == true ? "80px" : "0")};
 `;
 
 export const FooterComputer = styled.div`

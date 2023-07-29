@@ -5,6 +5,11 @@ export const ReferencesContainer = styled.div`
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
+  @media screen and (max-width: 991px) {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+  }
   @media screen and (max-width: 768px) {
     padding: 10px;
   }

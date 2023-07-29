@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FirstContextContainer = styled.div`
-  // background-color: var(--first-color);
   padding: 50px 0;
   border-radius: 10px;
   @media screen and (max-width: 768px) {
@@ -10,7 +9,7 @@ export const FirstContextContainer = styled.div`
 `;
 
 export const FirstContextH3 = styled.h3`
-  color: var(--third-color);
+  color: var(--fourth-color);
   margin-bottom: 40px;
   font-size: 2.5em;
   text-align: center;

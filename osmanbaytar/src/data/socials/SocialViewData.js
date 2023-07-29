@@ -18,7 +18,7 @@ const SocialDataEn = [
   },
   {
     title: "Sayokan Fighting Tournament",
-    date: "2018 April",
+    date: "2019 April",
     description:
       "In this tournament in April 2018, I showed the success of rising to the final in the 65-70 kg weight class. I came second by losing to my opponent 2-3 in the final and became the owner of the silver medal.",
     image: "../../../public/sayokanVideoTrim.mp4",
@@ -42,7 +42,7 @@ const SocialDataTr = [
   },
   {
     title: "Sayokan Dövüş Turnuvası",
-    date: "2018 Nisan",
+    date: "2019 Nisan",
     description:
       "2018 Nisan bu turnuvada 65-70 kilo sikletinde finale kadar yükselme başarısı gösterdim. Finalde rakibime 2-3 skorla yenilerek ikinci oldum ve gümüş madalyanın sahibi oldum.",
     image: "../../../public/sayokanVideoTrim.mp4",

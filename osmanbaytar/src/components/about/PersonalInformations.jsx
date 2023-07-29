@@ -24,8 +24,8 @@ const PersonalInformations = () => {
   }, [language]);
 
   return (
-    <div className="container">
-      <PersonalInformationsContainer className="row my-5">
+    <div className="container ">
+      <PersonalInformationsContainer className="row my-5 ">
         <PersonalInformationsTitle>{title}</PersonalInformationsTitle>
         <PersonalInformationsList>
           {Object.values(data).map((item, index) => {
