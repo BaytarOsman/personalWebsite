@@ -30,10 +30,7 @@ const FirstContext = () => {
         <FirstContextH3>{title}</FirstContextH3>
         <div className="col-lg-4">
           <FirstContextImageBox>
-            <FirstContextImage
-              className="px-auto"
-              src="../../../public/me2.JPG"
-            />
+            <FirstContextImage className="px-auto" src="images/me2.jpg" />
           </FirstContextImageBox>
         </div>
         <FirstContextTitle className="col-lg-8 fs-3">

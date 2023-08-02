@@ -20,7 +20,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderComputer = styled.div`
-  @media (max-width: 992px) {
+  @media (max-width: 991px) {
     display: none;
   }
 `;
@@ -28,7 +28,7 @@ export const HeaderComputer = styled.div`
 export const HeaderMobile = styled.div`
   display: none;
 
-  @media (max-width: 992px) {
+  @media (max-width: 991px) {
     display: block;
   }
 `;

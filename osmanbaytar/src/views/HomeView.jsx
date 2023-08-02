@@ -43,8 +43,8 @@ const HomeView = () => {
               <a
                 href={
                   language == "en"
-                    ? "../../public/OsmanBaytar_EnglishCV.pdf"
-                    : "../../public/OsmanBaytar_TürkçeCV.pdf"
+                    ? "pdf/OsmanBaytar_EnglishCV.pdf"
+                    : "pdf/OsmanBaytar_TürkçeCV.pdf"
                 }
                 download
               >
@@ -58,7 +58,7 @@ const HomeView = () => {
           <div className="col-lg-6 d-flex align-items-center justify-content-center">
             <HomeViewImage
               className="animate__animated animate__backInRight"
-              src="../../public/me.JPG"
+              src="images/me.JPG"
             ></HomeViewImage>
           </div>
         </div>

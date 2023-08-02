@@ -177,7 +177,7 @@ const Header = () => {
                     active={selected === "home" ? "true" : "false"}
                     onClick={goToHome}
                   >
-                    Osman Baytar
+                    Osman
                   </HeaderSpan>
                 </HeaderTitle>
 
