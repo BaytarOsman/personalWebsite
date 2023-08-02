@@ -37,21 +37,21 @@ const Header = () => {
   const language = useSelector((state) => state.language.language);
   const dispatch = useDispatch();
 
-  const pathname = window.location.pathname;
+  const hash = window.location.hash;
 
   useEffect(() => {
-    if (pathname === "/") {
+    if (hash === "#/") {
       setSelected("home");
-    } else if (pathname === "/about") {
+    } else if (hash === "#/about") {
       setSelected("about");
-    } else if (pathname === "/skills") {
+    } else if (hash === "#/skills") {
       setSelected("skills");
-    } else if (pathname === "/socials") {
+    } else if (hash === "#/socials") {
       setSelected("socials");
-    } else if (pathname === "/contact") {
+    } else if (hash === "#/contact") {
       setSelected("contact");
     }
-  }, [pathname]);
+  }, [hash]);
 
   useEffect(() => {
     if (language === "en") {
@@ -296,7 +296,7 @@ const Header = () => {
                     </HeaderTitle>
 
                     <HeaderTitle
-                      active={selected === "projects" ? "true" : "false"}
+                      active={selected === "socials" ? "true" : "false"}
                     >
                       <HeaderSpan active={"false"} onClick={goToSocials}>
                         {socials}
